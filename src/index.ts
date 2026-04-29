@@ -1,10 +1,21 @@
-import { displayWelcome, sayGoodbye } from "./ui.js";
+import { displayWelcome, sayGoodbye, askPlayAgain } from "./ui.js";
 import { startRound } from "./game.js";
 
 async function main() {
   displayWelcome();
 
-  const target = await startRound();
+  let playing = true;
+
+  while (playing) {
+    await startRound();
+
+    // Ask if they want to go again
+    const wantToPlayAgain = await askPlayAgain();
+
+    if (!wantToPlayAgain) {
+      playing = false;
+    }
+  }
 
   sayGoodbye();
 }

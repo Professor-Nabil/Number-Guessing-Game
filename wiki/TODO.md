@@ -34,7 +34,7 @@ _Goal: Implement the "Guess -> Compare -> Feedback" cycle._
 
 _Goal: Adding the "More Interesting" features from the requirements._
 
-- [ ] **Commit 7: Replayability**
+- [x] **Commit 7: Replayability**
   - Wrap the entire game in a "Play Again?" loop.
   - Reset the random number and attempt counter for each new round.
 - [ ] **Commit 8: High Score Tracking**

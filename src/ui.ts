@@ -6,6 +6,7 @@ import {
   isCancel,
   cancel,
   text,
+  confirm,
 } from "@clack/prompts";
 import { Difficulty } from "./types.js";
 import pc from "picocolors";
@@ -109,4 +110,15 @@ export const showSummary = (
       "Round Summary",
     );
   }
+};
+
+export const askPlayAgain = async (): Promise<boolean> => {
+  const choice = await confirm({
+    message: "Do you want to play another round?",
+    initialValue: true,
+  });
+
+  if (isCancel(choice)) return false;
+
+  return choice as boolean;
 };
