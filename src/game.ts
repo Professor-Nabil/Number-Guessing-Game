@@ -8,6 +8,7 @@ import {
   showSummary,
   showNewHighScore,
   showHint,
+  showThinking,
 } from "./ui.js";
 import { updateHighScore } from "./state.js";
 import { generateTargetNumber, compareNumbers, getHint } from "./engine.js";
@@ -17,6 +18,8 @@ import { formatDuration } from "./utils.js";
 export const startRound = async () => {
   const level = await askDifficulty();
   confirmDifficulty(level);
+
+  await showThinking();
 
   const { chances } = GAME_LEVELS[level];
   const targetNumber = generateTargetNumber(1, 100);

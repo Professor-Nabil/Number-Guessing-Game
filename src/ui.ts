@@ -7,6 +7,7 @@ import {
   cancel,
   text,
   confirm,
+  spinner,
 } from "@clack/prompts";
 import { Difficulty } from "./types.js";
 import pc from "picocolors";
@@ -140,5 +141,17 @@ export const displayHighScores = (scores: typeof highScores) => {
 };
 
 export const showHint = (hint: string) => {
-  note(pc.blue(hint), "💡 Hint");
+  note(pc.yellow(hint), "💡 Hint");
+};
+
+export const clearScreen = () => {
+  console.clear();
+};
+
+export const showThinking = async () => {
+  const s = spinner();
+  s.start(pc.dim("Computer is thinking of a number..."));
+  // Small artificial delay to make it feel "real"
+  await new Promise((resolve) => setTimeout(resolve, 800));
+  s.stop(pc.green("I have selected a number!"));
 };

@@ -50,7 +50,7 @@ _Goal: Final polish and "Invisible Quality."_
 
 - [x] **Commit 10: Hint System**
   - Add a "Hint" command or trigger (e.g., after 3 failed guesses, tell them if the number is even/odd).
-- [ ] **Commit 11: CLI UX Polish**
+- [x] **Commit 11: CLI UX Polish**
   - Add colors to the output (Green for win, Red for loss, Yellow for hints).
   - Clear the terminal screen between rounds for a cleaner feel.
 - [ ] **Commit 12: Final Documentation**
