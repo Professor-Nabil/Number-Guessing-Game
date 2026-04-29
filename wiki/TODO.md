@@ -53,5 +53,5 @@ _Goal: Final polish and "Invisible Quality."_
 - [x] **Commit 11: CLI UX Polish**
   - Add colors to the output (Green for win, Red for loss, Yellow for hints).
   - Clear the terminal screen between rounds for a cleaner feel.
-- [ ] **Commit 12: Final Documentation**
+- [x] **Commit 12: Final Documentation**
   - Create the README with instructions on how to run and play.
