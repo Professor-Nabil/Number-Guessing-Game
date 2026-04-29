@@ -25,7 +25,7 @@ _Goal: Implement the "Guess -> Compare -> Feedback" cycle._
 - [x] **Commit 5: Comparison Logic**
   - Implement the `Correct`, `Too High`, and `Too Low` feedback.
   - Track the number of attempts used so far.
-- [ ] **Commit 6: Win/Loss Conditions**
+- [x] **Commit 6: Win/Loss Conditions**
   - End the loop if the guess is correct (Win).
   - End the loop if attempts exceed the difficulty limit (Loss).
   - Display the final summary (correct number, total attempts).

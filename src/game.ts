@@ -5,6 +5,7 @@ import {
   showFeedback,
   showWin,
   showLoss,
+  showSummary,
 } from "./ui.js";
 import { generateTargetNumber, compareNumbers } from "./engine.js";
 import { GAME_LEVELS } from "./types.js";
@@ -30,7 +31,6 @@ export const startRound = async () => {
       break;
     }
 
-    // If not correct, show hint (unless it was the last chance)
     if (attempts < chances) {
       showFeedback(result, guess);
     }
@@ -40,5 +40,12 @@ export const startRound = async () => {
     showLoss(targetNumber);
   }
 
-  return { hasWon, attempts, level };
+  showSummary(hasWon, targetNumber, attempts);
+
+  return {
+    hasWon,
+    attempts,
+    level,
+    targetNumber,
+  };
 };

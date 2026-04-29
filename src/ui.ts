@@ -88,3 +88,25 @@ export const showLoss = (target: number) => {
     pc.red(`Game Over! You've run out of chances. The number was ${target}.`),
   );
 };
+
+export const showSummary = (
+  hasWon: boolean,
+  target: number,
+  attempts: number,
+) => {
+  if (hasWon) {
+    note(
+      `${pc.green(pc.bold("SUCCESS"))}\n` +
+        `You found the number ${pc.cyan(target)}!\n` +
+        `Total attempts: ${pc.yellow(attempts)}`,
+      "Round Summary",
+    );
+  } else {
+    note(
+      `${pc.red(pc.bold("FAILED"))}\n` +
+        `Better luck next time!\n` +
+        `The correct number was: ${pc.cyan(target)}`,
+      "Round Summary",
+    );
+  }
+};
