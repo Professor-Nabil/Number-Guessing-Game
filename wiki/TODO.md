@@ -22,7 +22,7 @@ _Goal: Implement the "Guess -> Compare -> Feedback" cycle._
 - [x] **Commit 4: Basic Guessing Input**
   - Prompt the user for a number.
   - Convert input to an integer and handle non-numeric errors.
-- [ ] **Commit 5: Comparison Logic**
+- [x] **Commit 5: Comparison Logic**
   - Implement the `Correct`, `Too High`, and `Too Low` feedback.
   - Track the number of attempts used so far.
 - [ ] **Commit 6: Win/Loss Conditions**

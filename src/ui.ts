@@ -65,3 +65,26 @@ export const askGuess = async (): Promise<number> => {
 
   return parseInt(guess as string);
 };
+
+export const showFeedback = (result: "high" | "low", guess: number) => {
+  const message =
+    result === "high"
+      ? `Incorrect! The number is ${pc.yellow("less")} than ${guess}.`
+      : `Incorrect! The number is ${pc.yellow("greater")} than ${guess}.`;
+
+  note(message);
+};
+
+export const showWin = (attempts: number) => {
+  note(
+    pc.green(
+      `Congratulations! You guessed the correct number in ${attempts} attempts.`,
+    ),
+  );
+};
+
+export const showLoss = (target: number) => {
+  note(
+    pc.red(`Game Over! You've run out of chances. The number was ${target}.`),
+  );
+};

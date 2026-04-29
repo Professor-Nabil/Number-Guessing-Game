@@ -10,3 +10,5 @@ export const GAME_LEVELS: Record<Difficulty, DifficultyConfig> = {
   Medium: { chances: 5, label: "Medium (5 chances)" },
   Hard: { chances: 3, label: "Hard (3 chances)" },
 };
+
+export type ComparisonResult = "correct" | "high" | "low";
