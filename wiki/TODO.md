@@ -4,7 +4,7 @@
 
 _Goal: Get the basic CLI loop and random number generation working._
 
-- [ ] **Commit 1: Basic Setup & Welcome**
+- [x] **Commit 1: Basic Setup & Welcome**
   - Print the welcome message and rules.
   - Implement a basic exit command to stop the script.
 - [ ] **Commit 2: Random Target Generation**
