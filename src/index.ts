@@ -1,9 +1,10 @@
 import { displayWelcome, sayGoodbye } from "./ui.js";
+import { startRound } from "./game.js";
 
 async function main() {
   displayWelcome();
 
-  // We will add the game loop here in the next commit
+  const target = await startRound();
 
   sayGoodbye();
 }

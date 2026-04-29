@@ -7,7 +7,7 @@ _Goal: Get the basic CLI loop and random number generation working._
 - [x] **Commit 1: Basic Setup & Welcome**
   - Print the welcome message and rules.
   - Implement a basic exit command to stop the script.
-- [ ] **Commit 2: Random Target Generation**
+- [x] **Commit 2: Random Target Generation**
   - Logic to generate a random integer between 1 and 100.
   - Ensure the number is generated once per round.
 - [ ] **Commit 3: Difficulty Selection**
