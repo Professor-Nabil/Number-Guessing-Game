@@ -19,7 +19,7 @@ _Goal: Get the basic CLI loop and random number generation working._
 
 _Goal: Implement the "Guess -> Compare -> Feedback" cycle._
 
-- [ ] **Commit 4: Basic Guessing Input**
+- [x] **Commit 4: Basic Guessing Input**
   - Prompt the user for a number.
   - Convert input to an integer and handle non-numeric errors.
 - [ ] **Commit 5: Comparison Logic**

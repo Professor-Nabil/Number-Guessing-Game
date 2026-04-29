@@ -1,4 +1,12 @@
-import { intro, outro, note, select, isCancel, cancel } from "@clack/prompts";
+import {
+  intro,
+  outro,
+  note,
+  select,
+  isCancel,
+  cancel,
+  text,
+} from "@clack/prompts";
 import { Difficulty } from "./types.js";
 import pc from "picocolors";
 
@@ -36,4 +44,24 @@ export const confirmDifficulty = (level: string) => {
   note(
     `Great! You have selected the ${pc.bold(level)} difficulty level.\nLet's start the game!`,
   );
+};
+
+export const askGuess = async (): Promise<number> => {
+  const guess = await text({
+    message: "Enter your guess:",
+    placeholder: "1-100",
+    validate(value) {
+      if (!value) return "Please enter a number"; // Handle the undefined/empty case
+      const parsed = parseInt(value);
+      if (isNaN(parsed)) return "Please enter a valid number";
+      if (parsed < 1 || parsed > 100) return "Number must be between 1 and 100";
+    },
+  });
+
+  if (isCancel(guess)) {
+    cancel("Game exited. See you!");
+    process.exit(0);
+  }
+
+  return parseInt(guess as string);
 };
