@@ -1,11 +1,18 @@
+import { askDifficulty, confirmDifficulty } from "./ui.js";
 import { generateTargetNumber } from "./engine.js";
+import { GAME_LEVELS } from "./types.js";
 
 export const startRound = async () => {
+  const level = await askDifficulty();
+  confirmDifficulty(level);
+
+  const { chances } = GAME_LEVELS[level];
   const targetNumber = generateTargetNumber(1, 100);
 
-  // For now, let's just prove it works.
-  // We'll remove this once the game loop is ready.
-  console.log(`(Psst... the target is ${targetNumber})`);
-
-  return targetNumber;
+  // Return everything index.ts needs to run the loop later
+  return {
+    targetNumber,
+    chances,
+    level,
+  };
 };

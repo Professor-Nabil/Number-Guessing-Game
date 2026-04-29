@@ -10,7 +10,7 @@ _Goal: Get the basic CLI loop and random number generation working._
 - [x] **Commit 2: Random Target Generation**
   - Logic to generate a random integer between 1 and 100.
   - Ensure the number is generated once per round.
-- [ ] **Commit 3: Difficulty Selection**
+- [x] **Commit 3: Difficulty Selection**
   - Display difficulty menu (Easy, Medium, Hard).
   - Map the user's choice to a specific "Chances" variable.
   - Handle invalid input (e.g., user types '5' instead of 1, 2, or 3).
