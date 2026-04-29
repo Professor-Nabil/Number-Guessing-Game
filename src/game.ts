@@ -6,7 +6,9 @@ import {
   showWin,
   showLoss,
   showSummary,
+  showNewHighScore,
 } from "./ui.js";
+import { updateHighScore } from "./state.js";
 import { generateTargetNumber, compareNumbers } from "./engine.js";
 import { GAME_LEVELS } from "./types.js";
 
@@ -36,11 +38,14 @@ export const startRound = async () => {
     }
   }
 
-  if (!hasWon) {
-    showLoss(targetNumber);
-  }
-
   showSummary(hasWon, targetNumber, attempts);
+
+  if (hasWon) {
+    const isNewRecord = updateHighScore(level, attempts);
+    if (isNewRecord) {
+      showNewHighScore(attempts);
+    }
+  }
 
   return {
     hasWon,

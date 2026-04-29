@@ -37,7 +37,7 @@ _Goal: Adding the "More Interesting" features from the requirements._
 - [x] **Commit 7: Replayability**
   - Wrap the entire game in a "Play Again?" loop.
   - Reset the random number and attempt counter for each new round.
-- [ ] **Commit 8: High Score Tracking**
+- [x] **Commit 8: High Score Tracking**
   - Save the fewest attempts taken per difficulty level in memory.
   - Compare current score against the high score at the end of a win.
 - [ ] **Commit 9: Timer Implementation**

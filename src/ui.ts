@@ -10,6 +10,7 @@ import {
 } from "@clack/prompts";
 import { Difficulty } from "./types.js";
 import pc from "picocolors";
+import { highScores } from "./state.js";
 
 export const displayWelcome = () => {
   intro(pc.bgCyan(pc.black(" NUMBER GUESSING GAME ")));
@@ -121,4 +122,17 @@ export const askPlayAgain = async (): Promise<boolean> => {
   if (isCancel(choice)) return false;
 
   return choice as boolean;
+};
+
+export const showNewHighScore = (attempts: number) => {
+  note(pc.magenta(pc.bold(`🏆 NEW HIGH SCORE! Only ${attempts} attempts! `)));
+};
+
+// Optional: Add a function to show current bests at the start
+export const displayHighScores = (scores: typeof highScores) => {
+  const lines = Object.entries(scores)
+    .map(([level, score]) => `${level}: ${score ?? "No record yet"}`)
+    .join("\n");
+
+  note(lines, "Current High Scores");
 };
