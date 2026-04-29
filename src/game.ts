@@ -11,6 +11,7 @@ import {
 import { updateHighScore } from "./state.js";
 import { generateTargetNumber, compareNumbers } from "./engine.js";
 import { GAME_LEVELS } from "./types.js";
+import { formatDuration } from "./utils.js";
 
 export const startRound = async () => {
   const level = await askDifficulty();
@@ -22,13 +23,14 @@ export const startRound = async () => {
   let attempts = 0;
   let hasWon = false;
 
+  const startTime = performance.now();
+
   while (attempts < chances) {
     attempts++;
     const guess = await askGuess();
     const result = compareNumbers(targetNumber, guess);
 
     if (result === "correct") {
-      showWin(attempts);
       hasWon = true;
       break;
     }
@@ -38,7 +40,10 @@ export const startRound = async () => {
     }
   }
 
-  showSummary(hasWon, targetNumber, attempts);
+  const endTime = performance.now();
+  const timeString = hasWon ? formatDuration(startTime, endTime) : undefined;
+
+  showSummary(hasWon, targetNumber, attempts, timeString);
 
   if (hasWon) {
     const isNewRecord = updateHighScore(level, attempts);
@@ -47,10 +52,5 @@ export const startRound = async () => {
     }
   }
 
-  return {
-    hasWon,
-    attempts,
-    level,
-    targetNumber,
-  };
+  return { hasWon, attempts, level };
 };

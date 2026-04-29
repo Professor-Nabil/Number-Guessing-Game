@@ -40,7 +40,7 @@ _Goal: Adding the "More Interesting" features from the requirements._
 - [x] **Commit 8: High Score Tracking**
   - Save the fewest attempts taken per difficulty level in memory.
   - Compare current score against the high score at the end of a win.
-- [ ] **Commit 9: Timer Implementation**
+- [x] **Commit 9: Timer Implementation**
   - Record the timestamp when the game starts.
   - Calculate and display the total seconds elapsed once the user wins.
 

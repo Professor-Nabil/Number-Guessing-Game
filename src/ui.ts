@@ -95,20 +95,22 @@ export const showSummary = (
   hasWon: boolean,
   target: number,
   attempts: number,
+  timeTaken?: string,
 ) => {
   if (hasWon) {
-    note(
-      `${pc.green(pc.bold("SUCCESS"))}\n` +
-        `You found the number ${pc.cyan(target)}!\n` +
-        `Total attempts: ${pc.yellow(attempts)}`,
-      "Round Summary",
-    );
+    let message =
+      `You found the number ${pc.cyan(target)}!\n` +
+      `Total attempts: ${pc.yellow(attempts)}`;
+
+    if (timeTaken) {
+      message += `\nTime taken: ${pc.magenta(timeTaken + " seconds")}`;
+    }
+
+    note(message, pc.green(pc.bold("SUCCESS")));
   } else {
     note(
-      `${pc.red(pc.bold("FAILED"))}\n` +
-        `Better luck next time!\n` +
-        `The correct number was: ${pc.cyan(target)}`,
-      "Round Summary",
+      `Better luck next time!\nThe correct number was: ${pc.cyan(target)}`,
+      pc.red(pc.bold("FAILED")),
     );
   }
 };
