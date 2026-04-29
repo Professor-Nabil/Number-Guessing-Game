@@ -138,3 +138,7 @@ export const displayHighScores = (scores: typeof highScores) => {
 
   note(lines, "Current High Scores");
 };
+
+export const showHint = (hint: string) => {
+  note(pc.blue(hint), "💡 Hint");
+};

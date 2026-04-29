@@ -7,9 +7,10 @@ import {
   showLoss,
   showSummary,
   showNewHighScore,
+  showHint,
 } from "./ui.js";
 import { updateHighScore } from "./state.js";
-import { generateTargetNumber, compareNumbers } from "./engine.js";
+import { generateTargetNumber, compareNumbers, getHint } from "./engine.js";
 import { GAME_LEVELS } from "./types.js";
 import { formatDuration } from "./utils.js";
 
@@ -22,7 +23,6 @@ export const startRound = async () => {
 
   let attempts = 0;
   let hasWon = false;
-
   const startTime = performance.now();
 
   while (attempts < chances) {
@@ -37,6 +37,11 @@ export const startRound = async () => {
 
     if (attempts < chances) {
       showFeedback(result, guess);
+
+      const hint = getHint(targetNumber, attempts);
+      if (hint) {
+        showHint(hint);
+      }
     }
   }
 
